@@ -23,6 +23,8 @@ public class Rectangle extends AbstractForm {
   * @param width Width of the rectangle.
   * @param height Height of the rectangle.
   * @param c Color of the rectangle.
+  * @throws IllegalPositionException
+  * 			Only allows positive coordinates.
   */
   public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException{
 		super(x,y,c);

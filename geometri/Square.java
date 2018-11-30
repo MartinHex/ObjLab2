@@ -20,6 +20,8 @@ public class Square extends AbstracForm {
   * @param y y-cordinate of the square.
   * @param side Side-length of the square.
   * @param c Color of the square.
+  * @throws IllegalPositionException
+  * 			Only allows positive coordinates.
   */
   public Square(int x, int y, int side, Color c) throws IllegalPositionException{
     super(x,y,c);
