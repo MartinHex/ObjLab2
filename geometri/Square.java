@@ -53,14 +53,14 @@ public class Square extends AbstracForm {
     return side*side;
   }
   /**
-  * Get the height of the square.
+  *{@inheritDoc}
   */
   @Override
   public int getHeight(){
     return side;
   }
   /**
-  * Get the width of the square.
+  *{@inheritDoc}
   */
   @Override
   public int getWidth(){
