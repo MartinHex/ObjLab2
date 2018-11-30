@@ -12,12 +12,8 @@ import java.awt.Graphics;
  * @author Oscar and Martin
  *
  */
-public class Circle implements GeometricalForm {
-	private int x;
-	private int y;
-	private Color color;
+public class Circle extends AbstractForm {
 	private int diameter;
-	private Oval wrappedOval;
 
 	/**
 	 * Constructs a GeometricalForm in the shape of a circle.
@@ -34,7 +30,8 @@ public class Circle implements GeometricalForm {
 	 * 			Only allows positive coordinates.
 	 */
 	public Circle(int x, int y, int diameter, Color c) throws IllegalPositionException{
-		wrappedOval = new Oval(x,y,diameter,diameter,c);
+		super(x,y,c);
+		this.diameter = diameter;
 	}
 
 	/**
@@ -48,15 +45,8 @@ public class Circle implements GeometricalForm {
 	 * 			Color of the circle.
 	 */
 	public Circle(GeometricalForm f, int diameter, Color c) {
-		wrappedOval = new Oval(f,diameter,diameter,c);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int compareTo(GeometricalForm a) {
-		oval.compareTo();
+		super(f,c);
+		this.diameter = diameter;
 	}
 
 	/**
@@ -66,14 +56,6 @@ public class Circle implements GeometricalForm {
 	public void fill(Graphics g){
 		oval.fill(g);
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public Color getColor(){
-			return Color.BLUE;
-    }
 
 	/**
 	 * {@inheritDoc}
@@ -106,37 +88,4 @@ public class Circle implements GeometricalForm {
     public int getWidth(){
 			return oval.getWidth();
     }
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public int getX(){
-			return oval.getX();
-    }
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public int getY(){
-			return oval.getY();
-    }
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public void move(int dx, int dy) throws IllegalPositionException{
-			oval.move(dx,dy);
-    }
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public void place(int x, int y) throws IllegalPositionException{
-			oval.place(x,y);
-    }
-
 }
