@@ -41,13 +41,6 @@ public class Rectangle extends AbstractForm {
 		this.height = height;
 		this.color = c.copy();
   }
-	/**
-  *{@inheritDoc}
-  */
-  @Override
-	public int compareTo(GeometricalForm a) {
-		
-	}
 
   /**
   *{@inheritDoc}
