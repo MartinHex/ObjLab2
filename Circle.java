@@ -121,6 +121,7 @@ public class Circle implements GeometricalForm {
 	@Override
     public int getY(){
 			return oval.getY();
+			System.out.print("kalle");
     }
 
 	/**
