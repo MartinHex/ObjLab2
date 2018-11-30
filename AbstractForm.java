@@ -23,20 +23,15 @@ abstract class AbstractForm implements GeometricalForm{
     this.y=y;
     this.c = c.copy();
   }
-<<<<<<< HEAD
-
   /**
   *Constructs an AbstractForm that contains the basic properties for any form.
   *
   * @param f
-  *         A geometricalFrom from where the position is drawn. 
+  *         GeometricalForm from where the coordinates are drawn.
   * @param c
   *         Color of the form.
   */
-  protected AbstractForm(GeometricalForm f, Color c){
-=======
-  protected AbstractForm(GeometricalForm f,Color c) throws IllegalPositionException{
->>>>>>> d105ced7bb137f69e6e694d019213a87fd4888b4
+  protected AbstractForm(GeometricalForm f,Color c) {
     this.x=f.getX();
     this.y=f.getY();
     this.c = c.copy();
