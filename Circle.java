@@ -72,7 +72,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
     public Color getColor(){
-
+			return oval.getColor();
     }
 
 	/**
@@ -80,7 +80,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
     public int getArea(){
-
+			return oval.getColor();
     }
 
 	/**
@@ -88,7 +88,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
     public int getHeight(){
-
+			return oval.getHeight();
     }
 
 	/**
@@ -96,7 +96,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
     public int getPerimeter(){
-
+			return oval.getPerimeter();
     }
 
 	/**
@@ -104,7 +104,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
     public int getWidth(){
-
+			return oval.getWidth();
     }
 
 	/**
@@ -112,7 +112,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
     public int getX(){
-
+			return oval.getX();
     }
 
 	/**
@@ -120,7 +120,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
     public int getY(){
-
+			return oval.getY();
     }
 
 	/**
@@ -128,7 +128,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
     public void move(int dx, int dy) throws IllegalPositionException{
-
+			oval.move(dx,dy);
     }
 
 	/**
