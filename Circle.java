@@ -72,7 +72,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
     public Color getColor(){
-			return Color.RED;
+			return Color.BLUE;
     }
 
 	/**
