@@ -5,7 +5,7 @@ import java.awt.Graphics;
 /**
  * This class represents the shape of a circle.
  * It implements the interface GeometricalForm so that it defines basic characteristics 
- * such as movability and geometric properties such as area. 
+ * Such as movability and geometric properties such as area. 
  * 
  * 
  * 
