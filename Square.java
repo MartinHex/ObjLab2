@@ -3,25 +3,25 @@ package geometri;
 
 /**
  * This class represents the shape of a square.
- * It implements the interface GeometricalForm so that it defines basic characteristics 
- * such as movability and geometric properties such as area. 
- * 
+ * It implements the interface GeometricalForm so that it defines basic characteristics
+ * such as movability and geometric properties such as area.
+ *
  * @author Oscar and Martin
  *
  */
-public class Square implements GeometricalForm {
+public class Square extends AbstracForm {
   private Rectangle wrappedRectangle;
 
   /**
   * A geometic form on the shape as a square.
   * @param x x-cordinate of the square.
   * @param y y-cordinate of the square.
-  * @param width Width of the square.
-  * @param height Height of the square.
+  * @param side Side-length of the square.
   * @param c Color of the square.
   */
   public Square(int x, int y, int side, Color c) throws IllegalPositionException{
-  
+    super(x,y,c);
+    this.side = side;
   }
   /**
   * Change a geometric to rektange based on the same position.
@@ -31,14 +31,8 @@ public class Square implements GeometricalForm {
   * @param c Color of the square.
   */
   public Square(GeometricalForm f, int side, Color c){
-	  
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int compareTo(GeometricalForm a) {
-
+	  super(f,c);
+    this.side = side;
   }
 
   /**
@@ -53,64 +47,28 @@ public class Square implements GeometricalForm {
   *{@inheritDoc}
   */
   @Override
-  public Color getColor(){
-
-  }
-
-  /**
-  *{@inheritDoc}
-  */
-  @Override
   public int getArea(){
-
+    return side*side;
   }
   /**
   * Get the height of the square.
   */
   @Override
   public int getHeight(){
-
+    return side;
   }
   /**
   * Get the width of the square.
   */
   @Override
   public int getWidth(){
-
+    return side;
   }
   /**
   *{@inheritDoc}
   */
   @Override
   public int getPerimeter(){
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int getX(){
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int getY(){
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public void move(int dx, int dy) throws IllegalPositionException{
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public void place(int x, int y) throws IllegalPositionException{
-
+    return 4*side;
   }
 }
