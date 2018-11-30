@@ -60,8 +60,6 @@ abstract class AbstractForm implements GeometricalForm{
   @Override
   public int getPerimeter();
 
-  public int compareTo( GeometricalForm f );
-
   /**
   *{@inheritDoc}
   */
