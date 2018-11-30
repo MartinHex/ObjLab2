@@ -56,7 +56,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
 	public int compareTo(GeometricalForm a) {
-
+		oval.compareTo();
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
 	public void fill(Graphics g){
-
+		oval.fill(g);
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class Circle implements GeometricalForm {
 	 */
 	@Override
     public void place(int x, int y) throws IllegalPositionException{
-
+			oval.place(x,y);
     }
 
 }
