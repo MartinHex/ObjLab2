@@ -2,23 +2,17 @@ package geometri;
 
 /**
  * This class represents the shape of a Rectangle.
- * It implements the interface GeometricalForm so that it defines basic characteristics 
- * such as movability and geometric properties such as area. 
- * 
+ * It implements the interface GeometricalForm so that it defines basic characteristics
+ * such as movability and geometric properties such as area.
+ *
  * @author Oscar and Martin
  *
  */
-public class Rectangle implements GeometricalForm {
-  /** x-position of the rectangle */
-	private int x;
-  /** y-position of the rectangle */
-	private int y;
+public class Rectangle extends AbstractForm {
   /** Height of the rectangle */
   private int height;
   /** Width of the rectangle */
 	private int width;
-  /** Color of the rectangle */
-	private Color color;
 
   /**
   * A geometic form on the shape as a rektangle.
@@ -29,7 +23,9 @@ public class Rectangle implements GeometricalForm {
   * @param c Color of the rectangle.
   */
   public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException{
-
+		super(x,y,c);
+		this.width = width;
+		this.height = height;
   }
 
   /**
@@ -40,14 +36,17 @@ public class Rectangle implements GeometricalForm {
   * @param c Color of the rectangle.
   */
   public Rectangle(GeometricalForm f, int width, int height, Color c){
-
+		super(f);
+		this.width = width;
+		this.height = height;
+		this.color = c.copy();
   }
 	/**
   *{@inheritDoc}
   */
   @Override
 	public int compareTo(GeometricalForm a) {
-
+		
 	}
 
   /**
@@ -62,64 +61,28 @@ public class Rectangle implements GeometricalForm {
   *{@inheritDoc}
   */
   @Override
-  public Color getColor(){
-
-  }
-
-  /**
-  *{@inheritDoc}
-  */
-  @Override
   public int getArea(){
-
+		return width*height;
   }
   /**
   * Get the height of the rectangle. Is an integer value.
   */
   @Override
   public int getHeight(){
-
+		return height;
   }
   /**
   * Get the width of the rectangle. Is an integer value.
   */
   @Override
   public int getWidth(){
-
+		return width;
   }
   /**
   *{@inheritDoc}
   */
   @Override
   public int getPerimeter(){
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int getX(){
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int getY(){
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public void move(int dx, int dy) throws IllegalPositionException{
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public void place(int x, int y) throws IllegalPositionException{
-
+		return 2*width+2*height;
   }
 }

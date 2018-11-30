@@ -12,6 +12,11 @@ abstract class AbstractForm implements GeometricalForm{
     this.y=y;
     this.c = c.copy();
   }
+  protected AbstractForm(GeometricalForm f) throws IllegalPositionException{
+    this.x=f.getX();
+    this.y=f.getY();
+    this.c = f.getColor().copy();
+  }
   /**
   *{@inheritDoc}
   */
