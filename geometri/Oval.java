@@ -14,7 +14,6 @@ import java.awt.Graphics;
 public class Oval extends AbstractForm{
 
 	private int width;
-	/** Height of the Oval. */
 	private int height;
 
 	/**
@@ -72,7 +71,7 @@ public class Oval extends AbstractForm{
      */
     @Override
     public int getArea(){
-
+			return (Math.PI * width/2 * height/2);
     }
 
     /**
@@ -80,7 +79,7 @@ public class Oval extends AbstractForm{
      */
     @Override
     public int getHeight(){
-
+			return height.clone();
     }
 
     /**
@@ -88,15 +87,17 @@ public class Oval extends AbstractForm{
      */
     @Override
     public int getPerimeter(){
-
-    }
+			//Perimeter for an ellipse, from Wikipedia.
+			int perimeter = floor(4*(width/2)*(Math.PI/2) * Math.sqrt(1 - Math.sqrt(1-(height/2*height/2)/((width/2 * width/2))) * Math.sin(Math.PI/4)*Math.sin(Math.PI/4)));
+			return perimeter;
+	  }
 
     /**
      * {@inheritDoc}
      */
     @Override
     public int getWidth(){
-
+			return width.clone();
     }
 
 }

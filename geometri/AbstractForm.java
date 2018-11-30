@@ -4,7 +4,7 @@ import java.awt.*;
 abstract class AbstractForm implements GeometricalForm{
   private int x;
   private int y;
-  private Color c;
+  private Color color;
   /**
   *Constructs an AbstractForm that contains the basic properties for any form.
   *
@@ -21,7 +21,7 @@ abstract class AbstractForm implements GeometricalForm{
     if( x<0 || y<0){throw new IllegalPositionException();}
     this.x=x;
     this.y=y;
-    this.c = c.copy();
+    this.color = c.clone();
   }
   /**
   *Constructs an AbstractForm that contains the basic properties for any form.
@@ -34,7 +34,7 @@ abstract class AbstractForm implements GeometricalForm{
   protected AbstractForm(GeometricalForm f,Color c) {
     this.x=f.getX();
     this.y=f.getY();
-    this.c = c.copy();
+    this.color = c.clone();
   }
   /**
   *{@inheritDoc}
@@ -71,7 +71,7 @@ abstract class AbstractForm implements GeometricalForm{
   */
   @Override
   public Color getColor(){
-    return c.copy();
+    return color.copy();
   }
 
   /**

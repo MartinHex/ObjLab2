@@ -62,7 +62,7 @@ public class Circle extends AbstractForm {
 	 */
 	@Override
     public int getArea(){
-			return oval.getColor();
+			return Math.PI*(diameter/2)*(diameter/2);
     }
 
 	/**
@@ -70,7 +70,7 @@ public class Circle extends AbstractForm {
 	 */
 	@Override
     public int getHeight(){
-			return oval.getHeight();
+			return diameter.clone();
     }
 
 	/**
@@ -78,7 +78,7 @@ public class Circle extends AbstractForm {
 	 */
 	@Override
     public int getPerimeter(){
-			return oval.getPerimeter();
+			return (int) floor(Math.PI * diameter);
     }
 
 	/**
@@ -86,6 +86,6 @@ public class Circle extends AbstractForm {
 	 */
 	@Override
     public int getWidth(){
-			return oval.getWidth();
+			return diameter.clone();
     }
 }
