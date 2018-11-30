@@ -11,7 +11,8 @@ import java.awt.Graphics;
  *
  */
 public class Square extends AbstracForm {
-  private Rectangle wrappedRectangle;
+  /** Sidelength of the square. */
+  private int side;
 
   /**
   * A geometic form on the shape as a square.
