@@ -11,7 +11,7 @@ import java.awt.*;
  * Furthermore the forms may be compared. First the areas of the
  * forms are compared and if the areas are equal then the
  * the perimeters are compared.
- * The area and the perimeter of a <tt>Point</tt> are 0. 
+ * The area and the perimeter of a <tt>Point</tt> are 0.
  * The area of a
  * <tt>Line</tt> is 0 and its perimeter is the double length of
  * the line.
@@ -40,25 +40,25 @@ public interface GeometricalForm
     */
    int getArea();
 
-    /** 
+    /**
      * The method <tt>compareTo</tt> compares the area and perimeter of the forms
      * to decide if the given geometrical form is less or greater
      * than this object. If they have the same area, the
      * perimeter decides.
-     *  
+     *
      * @param f The geometrical form to compare with.
-     * @return An integer smaller than 0 if this form 
+     * @return An integer smaller than 0 if this form
                is smaller than the form given as argument,
      *         0 if the sizes are equal, and a positive integer
                otherwise.
     */
    int compareTo( GeometricalForm f );
 
-    /** 
+    /**
      * Fill the area of the form at the position of the form
      * with the color of the form.
      *
-     * @param g A graphic pen to draw with. 
+     * @param g A graphic pen to draw with.
      */
    void fill( Graphics g );
 
@@ -99,7 +99,7 @@ public interface GeometricalForm
    int getY();
 
    /**
-    * Move the form the given distances. 
+    * Move the form the given distances.
     * Check if the new coordinates are legal and
     * if they are, set the position to the new coordinates.
     * Otherwise an <tt>IllegalPositionException</tt> is thrown.
@@ -130,11 +130,10 @@ public interface GeometricalForm
     *
     * @param x Distance right from origo.
     * @param y Distance down from origo.
-    * @throws <tt>IllegalPositionException</tt> if any coordinate is negative.
+    * @throws IllegalPositionException if any coordinate is negative.
     */
    void place( int x, int y )
-          throws IllegalPositionException;   
+          throws IllegalPositionException;
 
 
 }
-    
