@@ -1,6 +1,7 @@
 package geometri;
 
-
+import java.awt.Color;
+import java.awt.Graphics;
 /**
  * This class represents the shape of a square.
  * It implements the interface GeometricalForm so that it defines basic characteristics

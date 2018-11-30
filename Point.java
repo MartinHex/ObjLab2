@@ -1,11 +1,12 @@
 package geometri;
 
-
+import java.awt.Color;
+import java.awt.Graphics;
 /**
  * This class represents the shape of a point.
- * It implements the interface GeometricalForm so that it defines basic characteristics 
- * such as movability and geometric properties such as area. 
- * 
+ * It implements the interface GeometricalForm so that it defines basic characteristics
+ * such as movability and geometric properties such as area.
+ *
  * @author Oscar and Martin
  *
  */
