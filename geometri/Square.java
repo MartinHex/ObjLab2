@@ -20,8 +20,7 @@ public class Square extends AbstractForm {
   * @param y y-cordinate of the square.
   * @param side Side-length of the square.
   * @param c Color of the square.
-  * @throws IllegalPositionException
-  * 			Only allows positive coordinates.
+  * @throws IllegalPositionException Only allows positive coordinates.
   */
   public Square(int x, int y, int side, Color c) throws IllegalPositionException{
     super(x,y,c);
@@ -30,8 +29,7 @@ public class Square extends AbstractForm {
   /**
   * Change a geometric to rektange based on the same position.
   * @param f The geometric Form being modified.
-  * @param width Width of the square.
-  * @param height Height of the square.
+  * @param side Sidelength of the square.
   * @param c Color of the square.
   */
   public Square(GeometricalForm f, int side, Color c){
