@@ -5,11 +5,11 @@ package geometri;
  * set an illegal position.
  * A position is illegal if any of its coordinates is negative.
  */
-public class IllegalPositionException
+public static class IllegalPositionException
        extends Exception {
-     
+
     /**
-     * Construct a new <TT>Exception</TT> <i>without</i> 
+     * Construct a new <TT>Exception</TT> <i>without</i>
      * a detail message.
      */
     public IllegalPositionException() {
