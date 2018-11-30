@@ -40,6 +40,19 @@ abstract class AbstractForm implements GeometricalForm{
   *{@inheritDoc}
   */
   @Override
+  public int compareTo(GeometricalForm a) {
+    if(this.getArea()<a.getArea()){return -1;}
+    else if(this.getArea()>a.getArea()){return 1;}
+    else{
+      if(this.getPerimeter()<a.getPerimeter()){return -1;}
+      else if(this.getPerimeter()>a.getPerimeter()){return 1;}
+      else{return 0;}
+    }
+  }
+  /**
+  *{@inheritDoc}
+  */
+  @Override
   public int getArea();
   /**
   *{@inheritDoc}
