@@ -10,7 +10,7 @@ import java.awt.Graphics;
  * @author Oscar and Martin
  *
  */
-public class Square extends AbstracForm {
+public class Square extends AbstractForm {
   /** Sidelength of the square. */
   private int side;
 

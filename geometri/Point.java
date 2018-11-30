@@ -22,6 +22,8 @@ public class Point implements GeometricalForm {
   * @param x x-position of the square.
   * @param y y-position of the square.
   * @param c Color of the point.
+	* @throws IllegalPositionException
+	* 			Only allows positive coordinates.
   */
   public Point(int x, int y, Color c) throws IllegalPositionException{
 
