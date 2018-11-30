@@ -19,17 +19,16 @@ public class Point implements GeometricalForm {
 	private Color color;
   /**
   * Initiates a point in the plane.
-  * @param width Width of the square.
-  * @param height Height of the square.
+  * @param x x-position of the square.
+  * @param y y-position of the square.
   * @param c Color of the point.
   */
   public Point(int x, int y, Color c) throws IllegalPositionException{
 
   }
 
-  /** Initiates a point in the plane.
-  * @param width Width of the square.
-  * @param height Height of the square.
+  /** Translates GeometricalForm to point.
+  * @param f Old Geometrical Form.
   * @param c Color of the point.
   */
   public Point(GeometricalForm f, Color c){
