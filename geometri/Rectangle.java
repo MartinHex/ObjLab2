@@ -11,10 +11,6 @@ import java.awt.Graphics;
  *
  */
 public class Rectangle extends AbstractForm {
-  /** Height of the rectangle */
-  private int height;
-  /** Width of the rectangle */
-	private int width;
 
   /**
   * A geometic form on the shape as a rektangle.
@@ -27,9 +23,8 @@ public class Rectangle extends AbstractForm {
   * 			Only allows positive coordinates.
   */
   public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException{
-		super(x,y,c);
-		this.width = width;
-		this.height = height;
+    	if(x < 0 || y < 0){throw new IllegalPositionException();}
+		super(x,y,height,width,c.clone());
   }
 
   /**
@@ -40,10 +35,7 @@ public class Rectangle extends AbstractForm {
   * @param c Color of the rectangle.
   */
   public Rectangle(GeometricalForm f, int width, int height, Color c){
-		super(f);
-		this.width = width;
-		this.height = height;
-		this.color = c.copy();
+		super(f,height,width,c.clone());
   }
 
   /**
@@ -59,27 +51,14 @@ public class Rectangle extends AbstractForm {
   */
   @Override
   public int getArea(){
-		return width*height;
+		return this.getWidth()*this.getHeight();
   }
-  /**
-  * Get the height of the rectangle. Is an integer value.
-  */
-  @Override
-  public int getHeight(){
-		return height;
-  }
-  /**
-  * Get the width of the rectangle. Is an integer value.
-  */
-  @Override
-  public int getWidth(){
-		return width;
-  }
+
   /**
   *{@inheritDoc}
   */
   @Override
   public int getPerimeter(){
-		return 2*width+2*height;
+		return 2*this.getWidth()+2*this.getHeight();
   }
 }

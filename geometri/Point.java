@@ -10,13 +10,8 @@ import java.awt.Graphics;
  * @author Oscar and Martin
  *
  */
-public class Point implements GeometricalForm {
-  /** x-position of the rectangle */
-	private int x;
-  /** y-position of the rectangle */
-	private int y;
-  /** Color of the rectangle */
-	private Color color;
+public class Point extends AbstractForm{
+
   /**
   * Initiates a point in the plane.
   * @param x x-position of the square.
@@ -26,7 +21,8 @@ public class Point implements GeometricalForm {
 	* 			Only allows positive coordinates.
   */
   public Point(int x, int y, Color c) throws IllegalPositionException{
-
+		if(x < 0 || y < 0){throw new IllegalPositionException();}
+		super(x,y,0,0,c.clone());
   }
 
   /** Translates GeometricalForm to point.
@@ -34,15 +30,8 @@ public class Point implements GeometricalForm {
   * @param c Color of the point.
   */
   public Point(GeometricalForm f, Color c){
-
+		super(f,0,0,c.clone());
    }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int compareTo(GeometricalForm a) {
-
-  }
 
   /**
   *{@inheritDoc}
@@ -53,67 +42,18 @@ public class Point implements GeometricalForm {
   }
 
   /**
-  *{@inheritDoc}
-  */
-  @Override
-  public Color getColor(){
-
-  }
-
-  /**
   * Get the area of the point which since one dimensional; returns zero.
   */
   @Override
   public int getArea(){
-
+		return 0;
   }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int getHeight(){
 
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int getWidth(){
-
-  }
   /**
   * Get the perimeter of the point which since one dimensional; returns zero.
   */
   @Override
   public int getPerimeter(){
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int getX(){
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int getY(){
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public void move(int dx, int dy) throws IllegalPositionException{
-
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public void place(int x, int y) throws IllegalPositionException{
-
+		return 0;
   }
 }

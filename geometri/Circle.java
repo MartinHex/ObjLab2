@@ -7,13 +7,10 @@ import java.awt.Graphics;
  * It implements the interface GeometricalForm so that it defines basic characteristics
  * Such as movability and geometric properties such as area.
  *
- *
- *
  * @author Oscar and Martin
  *
  */
-public class Circle extends AbstractForm {
-	private int diameter;
+public class Circle extends AbstractForm{
 
 	/**
 	 * Constructs a GeometricalForm in the shape of a circle.
@@ -23,15 +20,15 @@ public class Circle extends AbstractForm {
 	 * @param y
 	 * 			Y coordinate of the circle.
 	 * @param diameter
-	 * 			Diameter of the circle.
+	 *			Diameter of the circle.
 	 * @param c
 	 * 			Color of the cirlce.
 	 * @throws IllegalPositionException
 	 * 			Only allows positive coordinates.
 	 */
 	public Circle(int x, int y, int diameter, Color c) throws IllegalPositionException{
-		super(x,y,c);
-		this.diameter = diameter;
+		if(x < 0 || y < 0){throw new IllegalPositionException();}
+		super(x,y,diameter,diameter,c.clone());
 	}
 
 	/**
@@ -45,8 +42,7 @@ public class Circle extends AbstractForm {
 	 * 			Color of the circle.
 	 */
 	public Circle(GeometricalForm f, int diameter, Color c) {
-		super(f,c);
-		this.diameter = diameter;
+		super(f,diameter,diameter,c.clone());
 	}
 
 	/**
@@ -54,7 +50,7 @@ public class Circle extends AbstractForm {
 	 */
 	@Override
 	public void fill(Graphics g){
-		oval.fill(g);
+		//Här ska vara något, vet inte hur man gör?
 	}
 
 	/**
@@ -69,23 +65,7 @@ public class Circle extends AbstractForm {
 	 * {@inheritDoc}
 	 */
 	@Override
-    public int getHeight(){
-			return diameter.clone();
-    }
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
     public int getPerimeter(){
 			return (int) floor(Math.PI * diameter);
-    }
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public int getWidth(){
-			return diameter.clone();
     }
 }

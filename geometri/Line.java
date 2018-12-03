@@ -1,34 +1,28 @@
 package geometri;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 
 /**
  * This class represents the shape of a line.
- * It implements the interface GeometricalForm so that it defines basic characteristics 
- * such as movability and geometric properties such as area. 
- * 
- * The line is defined by its 2 end points.
- *  
+ * It implements the interface GeometricalForm so that it defines basic characteristics
+ * such as movability and geometric properties such as area.
+ *
+ * The line is defined by its 2 end-points.
+ *
  * @author Oscar and Martin
  *
  */
-public class Line implements GeometricalForm{
-	
-	/** X coordinate of the starting position. */
-	private int x1;
+public class Line extends AbstractForm{
+
 	/** X coordinate of the end position. */
 	private int x2;
 	/** Y coordinate of the starting position. */
-	private int y1;
-	/** Y coordinate of the end position. */
 	private int y2;
 	/** Color of the line. */
-	private Color color;	
-	
+
 	/**
 	 * Constructs a line between two given points.
-	 * 
+	 *
 	 * @param x1
 	 * 			X coordinate from where the line starts.
 	 * @param y1
@@ -43,12 +37,15 @@ public class Line implements GeometricalForm{
 	 * 			Only allows positive start and end positions.
 	 */
 	public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException {
-		
+		if(x1 < 0 || x2 < 0 || y1 < 0|| y2 < 0){throw new IllegalPositionException();}
+		super(x1, y1, abs(y2-y1), abs(x2-x1), c.clone());
+		this.x2 = x2;
+		this.y2 = y2;
 	}
-	
+
 	/**
 	 * Constructs a line between two given points.
-	 * 
+	 *
 	 * @param f1
 	 * 			GeometricalForm from whose position the line starts.
 	 * @param f2
@@ -57,96 +54,36 @@ public class Line implements GeometricalForm{
 	 * 			Color of the line.
 	 */
 	public Line(GeometricalForm f1, GeometricalForm f2, Color c) {
-		
+		this.x2 = f2.getX();
+		this.y2 = f2.getY();
+		super(f, abs(y2-f1.getX()), abs(x2 - f1.getX()), c.clone());
 	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int compareTo(GeometricalForm a) {
-		
-	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void fill(Graphics g){
-		
+		// TODO:vet inte riktigt hur.
 	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public Color getColor(){
-    	
-    }
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
     public int getArea(){
-    	
+    	return 0;
     }
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public int getHeight(){
-    	
-    }
-	
+
+		private int getLength(){
+			return floor(sqrt((this.getY()-y2)*(this.getY() - y2) + (this.getX() - x2)*(this.getX() - x2)));
+		}
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
     public int getPerimeter(){
-    	
+    	return 2*this.getLength();
     }
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public int getWidth(){
-    	
-    }
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public int getX(){
-    	
-    }
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public int getY(){
-    	
-    }
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public void move(int dx, int dy) throws IllegalPositionException{
-    	
-    }
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-    public void place(int x, int y) throws IllegalPositionException{
-    	
-    }
-	
-
 }

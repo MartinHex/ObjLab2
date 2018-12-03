@@ -13,9 +13,6 @@ import java.awt.Graphics;
  */
 public class Oval extends AbstractForm{
 
-	private int width;
-	private int height;
-
 	/**
 	 * Constructs an oval shape as an GeometricalForm.
 	 *
@@ -36,9 +33,7 @@ public class Oval extends AbstractForm{
 		if(x<0 || y<0){
 			throw new IllegalPositionException();
 		}
-		super(x,y,c);
-		this.width = width;
-		this.height = height;
+		super(x,y,height,width,c.clone());
 	}
 
 	/**
@@ -53,9 +48,7 @@ public class Oval extends AbstractForm{
 	 * 			Color of the Oval.
 	 */
 	public Oval(GeometricalForm f, int width, int height, Color c) {
-		super(f.getX(), f.getY(), c);
-		this.width = width;
-		this.height = height;
+		super(f,height, width, c.clone());
 	}
 
 	/**
@@ -78,26 +71,9 @@ public class Oval extends AbstractForm{
      * {@inheritDoc}
      */
     @Override
-    public int getHeight(){
-			return height.clone();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public int getPerimeter(){
-			//Perimeter for an ellipse, from Wikipedia.
+			//Perimeter for an ellipse, from Wikipedia. Kanske klart, vi får dubbelkolla! NUmerisk version av integral.
 			int perimeter = floor(4*(width/2)*(Math.PI/2) * Math.sqrt(1 - Math.sqrt(1-(height/2*height/2)/((width/2 * width/2))) * Math.sin(Math.PI/4)*Math.sin(Math.PI/4)));
 			return perimeter;
 	  }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int getWidth(){
-			return width.clone();
-    }
-
 }

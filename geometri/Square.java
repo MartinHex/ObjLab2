@@ -11,8 +11,6 @@ import java.awt.Graphics;
  *
  */
 public class Square extends AbstractForm {
-  /** Sidelength of the square. */
-  private int side;
 
   /**
   * A geometic form on the shape as a square.
@@ -23,8 +21,8 @@ public class Square extends AbstractForm {
   * @throws IllegalPositionException Only allows positive coordinates.
   */
   public Square(int x, int y, int side, Color c) throws IllegalPositionException{
-    super(x,y,c);
-    this.side = side;
+    if(x < 0 || y < 0){throw new IllegalPositionException();}
+    super(x,y,side,side,c.clone());
   }
   /**
   * Change a geometric to rektange based on the same position.
@@ -33,8 +31,7 @@ public class Square extends AbstractForm {
   * @param c Color of the square.
   */
   public Square(GeometricalForm f, int side, Color c){
-	  super(f,c);
-    this.side = side;
+	  super(f,side,side,c.clone());
   }
 
   /**
@@ -50,27 +47,14 @@ public class Square extends AbstractForm {
   */
   @Override
   public int getArea(){
-    return side*side;
+    return this.getHeight()*this.getWidth();
   }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int getHeight(){
-    return side;
-  }
-  /**
-  *{@inheritDoc}
-  */
-  @Override
-  public int getWidth(){
-    return side;
-  }
+
   /**
   *{@inheritDoc}
   */
   @Override
   public int getPerimeter(){
-    return 4*side;
+    return 4*this.getWidth();
   }
 }
