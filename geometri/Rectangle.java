@@ -43,7 +43,8 @@ public class Rectangle extends AbstractForm {
   */
   @Override
 	public void fill(Graphics g){
-
+    g.setColor(this.getColor());
+    g.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 	}
 
   /**

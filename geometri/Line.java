@@ -73,7 +73,8 @@ public class Line extends AbstractForm{
 	 */
 	@Override
 	public void fill(Graphics g){
-		// TODO:vet inte riktigt hur.
+		g.setColor(this.getColor());
+		g.drawLine(this.getX(), this.getY(), this.x2, this.y2);
 	}
 
 	/**

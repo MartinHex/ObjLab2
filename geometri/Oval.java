@@ -56,7 +56,8 @@ public class Oval extends AbstractForm{
 	 */
 	@Override
 	public void fill(Graphics g){
-
+		g.setColor(this.getColor());
+		g.fillOval(this.getX(), this.getY(), this.getWidth(), this.getHeight())
 	}
 
     /**

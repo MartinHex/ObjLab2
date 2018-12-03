@@ -38,7 +38,8 @@ public class Point extends AbstractForm{
   */
   @Override
   public void fill(Graphics g){
-
+		g.setColor(this.getColor());
+		g.drawLine(this.getX(), this.getY(), this.getX(), this.getY());
   }
 
   /**
