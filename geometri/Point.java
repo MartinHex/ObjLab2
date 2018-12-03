@@ -38,6 +38,7 @@ public class Point extends AbstractForm{
   */
   @Override
   public void fill(Graphics g){
+		//A point is drawn as a line with the same start and end position.s
 		g.setColor(this.getColor());
 		g.drawLine(this.getX(), this.getY(), this.getX(), this.getY());
   }
