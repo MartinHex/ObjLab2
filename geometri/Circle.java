@@ -1,7 +1,6 @@
 package geometri;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 /**
  * This class represents the shape of a circle.
  * It implements the interface GeometricalForm so that it defines basic characteristics
@@ -10,7 +9,7 @@ import java.awt.Graphics;
  * @author Oscar and Martin
  *
  */
-public class Circle extends AbstractForm{
+public class Circle extends Oval{
 
 	/**
 	 * Constructs a GeometricalForm in the shape of a circle.
@@ -43,14 +42,6 @@ public class Circle extends AbstractForm{
 	 */
 	public Circle(GeometricalForm f, int diameter, Color c) {
 		super(f,diameter,diameter,c.clone());
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fill(Graphics g){
-		//Här ska vara något, vet inte hur man gör?
 	}
 
 	/**
