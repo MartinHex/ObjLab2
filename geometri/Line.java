@@ -38,9 +38,18 @@ public class Line extends AbstractForm{
 	 */
 	public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException {
 		if(x1 < 0 || x2 < 0 || y1 < 0|| y2 < 0){throw new IllegalPositionException();}
-		super(x1, y1, abs(y2-y1), abs(x2-x1), c.clone());
-		this.x2 = x2;
-		this.y2 = y2;
+		if(x1<x2 && y1<y2){
+			super(x1, y1, abs(y2-y1), abs(x2-x1), c.clone());
+			this.x2 = x2;
+			this.y2 = y2;
+		}
+		else if(x1<x2 && y1>y2){
+			//Vi måste flytta linjen så att den passar i en rektangel som
+			// där formen defineras av den övre vänsta punkten.
+			// Det kommer att finnas 4 olika fall där vi behöver skifta
+			//linjen på olika sätt. Lite oklart hur vi behåller så att vi
+			//definerar "rektangeln" på rätt sätt...
+		}
 	}
 
 	/**
