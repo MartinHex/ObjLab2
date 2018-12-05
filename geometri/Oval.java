@@ -54,7 +54,7 @@ public class Oval extends AbstractForm{
 	@Override
 	public void fill(Graphics g){
 		g.setColor(this.getColor());
-		g.fillOval(this.getX(), this.getY(), this.getWidth(), this.getHeight())
+		g.fillOval(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 	}
 
     /**
@@ -62,7 +62,7 @@ public class Oval extends AbstractForm{
      */
     @Override
     public int getArea(){
-			return (Math.PI * width/2 * height/2);
+			return (Math.PI * this.getWidth()/2 * this.getHeight()/2);
     }
 
     /**
@@ -72,7 +72,7 @@ public class Oval extends AbstractForm{
     public int getPerimeter(){
 			//Perimeter for an ellipse, from Wikipedia. Kanske klart, vi får dubbelkolla! NUmerisk version av integral.
 			//Approximative solution
-			int perimeter = (int) (Math.PI*Math.sqrt(2*(width*width+height*height))+0.5)
+			int perimeter = (int) (Math.PI*Math.sqrt(2*(this.getWidth()*this.getWidth()+getHeight()/2*getHeight()/2))+0.5);
 			//floor(4*(width/2)*(Math.PI/2) * Math.sqrt(1 - Math.sqrt(1-(height/2*height/2)/((width/2 * width/2))) * Math.sin(Math.PI/4)*Math.sin(Math.PI/4)));
 			return perimeter;
 	  }
