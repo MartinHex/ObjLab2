@@ -2,7 +2,6 @@ package geometri;
 
 import java.awt.*;
 import java.lang.Math;
-
 /**
  * This class represents the shape of a line.
  * It implements the interface GeometricalForm so that it defines basic characteristics
@@ -14,12 +13,10 @@ import java.lang.Math;
  *
  */
 public class Line extends AbstractForm{
-
 	private int x1;
 	private int y1;
 	private int x2;
 	private int y2;
-
 	/**
 	 * Constructs a line between two given points.
 	 *
@@ -43,7 +40,6 @@ public class Line extends AbstractForm{
 		this.x2 = x2;
 		this.y2 = y2;
 	}
-
 	/**
 	 * Constructs a line between two given points.
 	 *
@@ -60,20 +56,15 @@ public class Line extends AbstractForm{
 		this.y1 = f1.getY();
 		this.x2 = f2.getX();
 		this.y2 = f2.getY();
+		// As the place method cast an exception and we are not allowed to return one we do an internal
+		// try-catch method, this is safe as we should not be able to obtain a GeometricalFrom
+		// whose coordinates are not qualified.
 		try{
 		this.place(x1 - shiftPos(x1,x2), y1 - shiftPos(y1, y2));
 	}catch(IllegalPositionException e){System.out.println("This won't happen");}
 	}
 
 // Shifts the position of the line so that it fits into an abstractFrom, i.e abstract rectangle.
-//	private static int shiftPos(int a, int b){
-//		if(a>b){
-//		return b;
-//		}
-//		else{
-//			return a;
-	//	}
-	//}
 	private static int shiftPos(int a, int b) {
 		if(a>b){
 			return a-b;
@@ -89,9 +80,7 @@ public class Line extends AbstractForm{
 	public void fill(Graphics g){
 		g.setColor(this.getColor());
 		g.drawLine(this.getX() + shiftPos(x1,x2), this.getY() + shiftPos(y1,y2), this.getX() + shiftPos(x2,x1), this.getY() + shiftPos(y2,y1));
-		//g.drawLine(this.getX()+shiftPos(x1,x2), this.getY()+shiftPos(y1,y2), this.getX()+shiftPos(x2,x1), this.getY()+shiftPos(y1,y2));
 	}
-
 	/**
 	 * {@inheritDoc}
 	 */

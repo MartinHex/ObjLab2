@@ -11,7 +11,6 @@ import java.lang.Math;
  *
  */
 public class Circle extends Oval{
-
 	/**
 	 * Constructs a GeometricalForm in the shape of a circle.
 	 *
@@ -29,7 +28,6 @@ public class Circle extends Oval{
 	public Circle(int x, int y, int diameter, Color c) throws IllegalPositionException{
 		super(x,y,diameter,diameter, c);
 	}
-
 	/**
 	 * Constructs a GeometricalForm in the shape of a circle.
 	 *
@@ -43,13 +41,12 @@ public class Circle extends Oval{
 	public Circle(GeometricalForm f, int diameter, Color c) {
 		super(f,diameter,diameter,c);
 	}
-
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
     public int getPerimeter(){
-			// We override since it is easier to calculate.
+			// We override since it is easier to calculate and more exact.
 			return (int) (Math.PI * this.getWidth() +0.5);
     }
 }
