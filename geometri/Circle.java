@@ -50,6 +50,6 @@ public class Circle extends Oval{
 	@Override
     public int getPerimeter(){
 			// We override since it is easier to calculate.
-			return (int) (Math.PI * diameter +0.5);
+			return (int) (Math.PI * this.getWidth() +0.5);
     }
 }

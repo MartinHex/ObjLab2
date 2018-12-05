@@ -62,7 +62,7 @@ public class Oval extends AbstractForm{
      */
     @Override
     public int getArea(){
-			return (Math.PI * this.getWidth()/2 * this.getHeight()/2);
+			return (int)(Math.PI * this.getWidth()/2 * this.getHeight()/2+0.5);
     }
 
     /**
