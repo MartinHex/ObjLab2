@@ -1,6 +1,7 @@
 package geometri;
 
 import java.awt.*;
+import java.lang.Math;
 /**
  * This class represents the shape of a circle.
  * It implements the interface GeometricalForm so that it defines basic characteristics

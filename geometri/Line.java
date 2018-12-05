@@ -1,7 +1,7 @@
 package geometri;
 
 import java.awt.*;
-import java.util.Math;
+import java.lang.Math;
 
 /**
  * This class represents the shape of a line.
