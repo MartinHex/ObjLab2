@@ -11,7 +11,6 @@ import java.awt.Graphics;
  *
  */
 public class Square extends Rectangle {
-
   /**
   * A geometic form on the shape as a square.
   * @param x x-cordinate of the square.

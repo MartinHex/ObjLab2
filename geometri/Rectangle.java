@@ -11,7 +11,6 @@ import java.awt.Graphics;
  *
  */
 public class Rectangle extends AbstractForm {
-
   /**
   * A geometic form on the shape as a rektangle.
   * @param x x-cordinate of the rektangle.
@@ -25,7 +24,6 @@ public class Rectangle extends AbstractForm {
   public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException{
 		super(x,y,height,width,c);
   }
-
   /**
   * Change a geometric to rektange based on the same position.
   * @param f The geometric Form being modified.
@@ -36,7 +34,6 @@ public class Rectangle extends AbstractForm {
   public Rectangle(GeometricalForm f, int width, int height, Color c){
 		super(f,height,width,c);
   }
-
   /**
   *{@inheritDoc}
   */
@@ -45,7 +42,6 @@ public class Rectangle extends AbstractForm {
     g.setColor(this.getColor());
     g.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 	}
-
   /**
   *{@inheritDoc}
   */
@@ -53,7 +49,6 @@ public class Rectangle extends AbstractForm {
   public int getArea(){
 		return this.getWidth()*this.getHeight();
   }
-
   /**
   *{@inheritDoc}
   */
