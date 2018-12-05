@@ -58,7 +58,7 @@ public class Line extends AbstractForm{
 	public Line(GeometricalForm f1, GeometricalForm f2, Color c) {
 		this.x2 = f2.getX();
 		this.y2 = f2.getY();
-		super(f, Math.abs(y2-f1.getX()), Math.abs(x2 - f1.getX()), c);
+		super(f, (int) Math.abs(y2-f1.getX()),(int) Math.abs(x2 - f1.getX()), c);
 	}
 
 	/**
