@@ -15,6 +15,9 @@ import java.lang.Math;
  */
 public class Line extends AbstractForm{
 
+	private int x1;
+	private int y1;
+
 	/** X coordinate of the end position. */
 	private int x2;
 	/** Y coordinate of the starting position. */
@@ -38,10 +41,11 @@ public class Line extends AbstractForm{
 	 * 			Only allows positive start and end positions.
 	 */
 	public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException {
-		super(x1, y1, (int)(Math.abs(y2-y1)+0.5), (int)(Math.abs(x2-x1)+0.5), c);
-		if(x2 < 0 || y2 < 0){throw new IllegalPositionException();}
-			this.x2 = x2;
-			this.y2 = y2;
+		super(setPos(x1,x2), setPos(y1,y1),(int)(Math.abs(y2-y1)+0.5), (int)(Math.abs(x2-x1)+0.5),c);
+		this.x1 = x1;
+		this.y1 = y1;
+		this.x2 = x2;
+		this.y2 = y2;
 	}
 
 	/**
@@ -55,10 +59,24 @@ public class Line extends AbstractForm{
 	 * 			Color of the line.
 	 */
 	public Line(GeometricalForm f1, GeometricalForm f2, Color c) {
-		super(f1, (int) Math.abs(f2.getY()-f1.getY()+0.5),(int) Math.abs(f2.getX() - f1.getX()+0.5), c);
-		this.x2 = f2.getX();
-		this.y2 = f2.getY();
+		super(setPos(x1,x2), setPos(y1,y2),(int)(Math.abs(f2.getY()-f1.getY())+0.5), (int)(Math.abs(f2.getX()-f1.getX())+0.5),c);
+		this.x1 = x1;
+		this.y1 = y1;
+		this.x2 = x2;
+		this.y2 = y2;
 	}
+
+// Shifts the position of the line so that it fits into an abstractFrom, i.e abstract rectangle.
+	private int setPos(int a, int b){
+		if(a>b){
+			return b;
+		}
+		else{
+			return a;
+		}
+	}
+
+	
 
 	/**
 	 * {@inheritDoc}
@@ -66,7 +84,7 @@ public class Line extends AbstractForm{
 	@Override
 	public void fill(Graphics g){
 		g.setColor(this.getColor());
-		g.drawLine(this.getX(), this.getY(), this.x2, this.y2);
+		g.drawLine(this.x1, this.y1, this.x2, this.y2);
 	}
 
 	/**
@@ -88,22 +106,4 @@ public class Line extends AbstractForm{
     public int getPerimeter(){
     	return (int) (2*this.getLength()+0.5);
     }
-
-		/**
-		*{@inheritDoc}
-		*/
-		@Override
-		public void move(int dx, int dy) throws IllegalPositionException{
-			if( this.x2+dx<0 || this.y2+dy<0){throw new IllegalPositionException();}
-			super.move(dx,dy);
-			this.x2 += dx;
-			this.y2 += dy;
-		}
-		/**
-		*{@inheritDoc}
-		*/
-		@Override
-		public void place(int x, int y) throws IllegalPositionException{
-			this.move(x-this.getX(),y-this.getY());
-		}
 }
