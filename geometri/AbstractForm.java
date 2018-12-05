@@ -29,7 +29,7 @@ abstract class AbstractForm implements GeometricalForm{
     this.y=y;
     this.height = height;
     this.width = width;
-    this.color = c.clone();
+    this.color = c;
   }
   /**
   *Constructs an AbstractForm that contains the basic properties for any form.
@@ -48,7 +48,7 @@ abstract class AbstractForm implements GeometricalForm{
     this.y=f.getY();
     this.height = height;
     this.width = width;
-    this.color = c.clone();
+    this.color = c;
   }
   /**
   *{@inheritDoc}
