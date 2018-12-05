@@ -41,7 +41,7 @@ public class Line extends AbstractForm{
 	 * 			Only allows positive start and end positions.
 	 */
 	public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException {
-		super(setPos(x1,x2), setPos(y1,y1),(int)(Math.abs(y2-y1)+0.5), (int)(Math.abs(x2-x1)+0.5),c);
+		super(x1-setPos(x1,x2), y1-setPos(y1,y1),(int)(Math.abs(y2-y1)+0.5), (int)(Math.abs(x2-x1)+0.5),c);
 		this.x1 = x1;
 		this.y1 = y1;
 		this.x2 = x2;
@@ -59,24 +59,37 @@ public class Line extends AbstractForm{
 	 * 			Color of the line.
 	 */
 	public Line(GeometricalForm f1, GeometricalForm f2, Color c) {
-		super(setPos(x1,x2), setPos(y1,y2),(int)(Math.abs(f2.getY()-f1.getY())+0.5), (int)(Math.abs(f2.getX()-f1.getX())+0.5),c);
-		this.x1 = x1;
-		this.y1 = y1;
-		this.x2 = x2;
-		this.y2 = y2;
+		super(f1,(int)(Math.abs(f2.getY()-f1.getY())+0.5), (int)(Math.abs(f2.getX()-f1.getX())+0.5), c);
+		this.x1 = f1.getX();
+		this.y1 = f1.getY();
+		this.x2 = f2.getX();
+		this.y2 = f2.getY();
+		try{
+		//this.place(setPos(f1.getX(), f2.getX()),setPos(f1.getY(), f2.getY()));
+		this.place(x1 - setPos(x1,x2), y1 - setPos(y1, y2));
+	}catch(IllegalPositionException e){System.out.println("This won't happen");}
 	}
 
 // Shifts the position of the line so that it fits into an abstractFrom, i.e abstract rectangle.
-	private int setPos(int a, int b){
+//	private static int setPos(int a, int b){
+//		if(a>b){
+//		return b;
+//		}
+//		else{
+//			return a;
+	//	}
+	//}
+
+	private static int setPos(int a, int b) {
 		if(a>b){
-			return b;
+			return a-b;
 		}
 		else{
-			return a;
+			return 0;
 		}
 	}
 
-	
+
 
 	/**
 	 * {@inheritDoc}
@@ -84,7 +97,8 @@ public class Line extends AbstractForm{
 	@Override
 	public void fill(Graphics g){
 		g.setColor(this.getColor());
-		g.drawLine(this.x1, this.y1, this.x2, this.y2);
+		g.drawLine(this.getX() + setPos(x1,x2), this.getY() + setPos(y1,y2), this.getX() + setPos(x2,x1), this.getY() + setPos(y2,y1));
+		//g.drawLine(this.getX()+setPos(x1,x2), this.getY()+setPos(y1,y2), this.getX()+setPos(x2,x1), this.getY()+setPos(y1,y2));
 	}
 
 	/**
