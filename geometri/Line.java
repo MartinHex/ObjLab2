@@ -17,12 +17,8 @@ public class Line extends AbstractForm{
 
 	private int x1;
 	private int y1;
-
-	/** X coordinate of the end position. */
 	private int x2;
-	/** Y coordinate of the starting position. */
 	private int y2;
-	/** Color of the line. */
 
 	/**
 	 * Constructs a line between two given points.
@@ -41,7 +37,7 @@ public class Line extends AbstractForm{
 	 * 			Only allows positive start and end positions.
 	 */
 	public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException {
-		super(x1-setPos(x1,x2), y1-setPos(y1,y1),(int)(Math.abs(y2-y1)+0.5), (int)(Math.abs(x2-x1)+0.5),c);
+		super(x1-shiftPos(x1,x2), y1-shiftPos(y1,y1),(int)(Math.abs(y2-y1)+0.5), (int)(Math.abs(x2-x1)+0.5),c);
 		this.x1 = x1;
 		this.y1 = y1;
 		this.x2 = x2;
@@ -65,13 +61,12 @@ public class Line extends AbstractForm{
 		this.x2 = f2.getX();
 		this.y2 = f2.getY();
 		try{
-		//this.place(setPos(f1.getX(), f2.getX()),setPos(f1.getY(), f2.getY()));
-		this.place(x1 - setPos(x1,x2), y1 - setPos(y1, y2));
+		this.place(x1 - shiftPos(x1,x2), y1 - shiftPos(y1, y2));
 	}catch(IllegalPositionException e){System.out.println("This won't happen");}
 	}
 
 // Shifts the position of the line so that it fits into an abstractFrom, i.e abstract rectangle.
-//	private static int setPos(int a, int b){
+//	private static int shiftPos(int a, int b){
 //		if(a>b){
 //		return b;
 //		}
@@ -79,8 +74,7 @@ public class Line extends AbstractForm{
 //			return a;
 	//	}
 	//}
-
-	private static int setPos(int a, int b) {
+	private static int shiftPos(int a, int b) {
 		if(a>b){
 			return a-b;
 		}
@@ -88,17 +82,14 @@ public class Line extends AbstractForm{
 			return 0;
 		}
 	}
-
-
-
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void fill(Graphics g){
 		g.setColor(this.getColor());
-		g.drawLine(this.getX() + setPos(x1,x2), this.getY() + setPos(y1,y2), this.getX() + setPos(x2,x1), this.getY() + setPos(y2,y1));
-		//g.drawLine(this.getX()+setPos(x1,x2), this.getY()+setPos(y1,y2), this.getX()+setPos(x2,x1), this.getY()+setPos(y1,y2));
+		g.drawLine(this.getX() + shiftPos(x1,x2), this.getY() + shiftPos(y1,y2), this.getX() + shiftPos(x2,x1), this.getY() + shiftPos(y2,y1));
+		//g.drawLine(this.getX()+shiftPos(x1,x2), this.getY()+shiftPos(y1,y2), this.getX()+shiftPos(x2,x1), this.getY()+shiftPos(y1,y2));
 	}
 
 	/**
@@ -108,11 +99,9 @@ public class Line extends AbstractForm{
     public int getArea(){
     	return 0;
     }
-
 		private double getLength(){
 			return Math.sqrt((this.getY()-y2)*(this.getY() - y2) + (this.getX() - x2)*(this.getX() - x2));
 		}
-
 	/**
 	 * {@inheritDoc}
 	 */
