@@ -1,6 +1,7 @@
 package geometri;
 
 import java.awt.*;
+import java.util.Math;
 
 /**
  * This class represents the shape of a line.
@@ -39,14 +40,9 @@ public class Line extends AbstractForm{
 	public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException {
 		if(x2 < 0 || y2 < 0){throw new IllegalPositionException();}
 
-			super(x1, y1, abs(y2-y1), abs(x2-x1), c.clone());
+			super(x1, y1, abs(y2-y1), abs(x2-x1), c);
 			this.x2 = x2;
 			this.y2 = y2;
-			//Vi måste flytta linjen så att den passar i en rektangel som
-			// där formen defineras av den övre vänsta punkten.
-			// Det kommer att finnas 4 olika fall där vi behöver skifta
-			//linjen på olika sätt. Lite oklart hur vi behåller så att vi
-			//definerar "rektangeln" på rätt sätt...
 	}
 
 	/**
@@ -62,7 +58,7 @@ public class Line extends AbstractForm{
 	public Line(GeometricalForm f1, GeometricalForm f2, Color c) {
 		this.x2 = f2.getX();
 		this.y2 = f2.getY();
-		super(f, abs(y2-f1.getX()), abs(x2 - f1.getX()), c.clone());
+		super(f, Math.abs(y2-f1.getX()), Math.abs(x2 - f1.getX()), c);
 	}
 
 	/**
@@ -83,7 +79,7 @@ public class Line extends AbstractForm{
     }
 
 		private double getLength(){
-			return sqrt((this.getY()-y2)*(this.getY() - y2) + (this.getX() - x2)*(this.getX() - x2));
+			return Math.sqrt((this.getY()-y2)*(this.getY() - y2) + (this.getX() - x2)*(this.getX() - x2));
 		}
 
 	/**

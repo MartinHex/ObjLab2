@@ -26,7 +26,7 @@ public class Circle extends Oval{
 	 * 			Only allows positive coordinates.
 	 */
 	public Circle(int x, int y, int diameter, Color c) throws IllegalPositionException{
-		super(x,y,diameter,diameter,c.clone());
+		super(x,y,diameter,diameter, c);
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class Circle extends Oval{
 	 * 			Color of the circle.
 	 */
 	public Circle(GeometricalForm f, int diameter, Color c) {
-		super(f,diameter,diameter,c.clone());
+		super(f,diameter,diameter,c);
 	}
 
 	/**
@@ -49,6 +49,6 @@ public class Circle extends Oval{
 	@Override
     public int getPerimeter(){
 			// We override since it is easier to calculate.
-			return (int) floor(Math.PI * diameter);
+			return (int) (Math.PI * diameter +0.5);
     }
 }

@@ -21,7 +21,7 @@ public class Square extends Rectangle {
   * @throws IllegalPositionException Only allows positive coordinates.
   */
   public Square(int x, int y, int side, Color c) throws IllegalPositionException{
-    super(x,y,side,side,c.clone());
+    super(x,y,side,side,c);
   }
   /**
   * Change a geometric to rektangle based on the same position.
@@ -30,6 +30,6 @@ public class Square extends Rectangle {
   * @param c Color of the square.
   */
   public Square(GeometricalForm f, int side, Color c){
-	  super(f,side,side,c.clone());
+	  super(f,side,side,c);
   }
 }
