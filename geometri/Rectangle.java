@@ -23,7 +23,6 @@ public class Rectangle extends AbstractForm {
   * 			Only allows positive coordinates.
   */
   public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException{
-    	if(x < 0 || y < 0){throw new IllegalPositionException();}
 		super(x,y,height,width,c.clone());
   }
 

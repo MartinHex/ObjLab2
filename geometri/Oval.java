@@ -30,9 +30,6 @@ public class Oval extends AbstractForm{
 	 * 			Only allows positive coordinates.
 	 */
 	public Oval(int x, int y, int width, int height, Color c) throws IllegalPositionException {
-		if(x<0 || y<0){
-			throw new IllegalPositionException();
-		}
 		super(x,y,height,width,c.clone());
 	}
 
@@ -74,7 +71,9 @@ public class Oval extends AbstractForm{
     @Override
     public int getPerimeter(){
 			//Perimeter for an ellipse, from Wikipedia. Kanske klart, vi får dubbelkolla! NUmerisk version av integral.
-			int perimeter = floor(4*(width/2)*(Math.PI/2) * Math.sqrt(1 - Math.sqrt(1-(height/2*height/2)/((width/2 * width/2))) * Math.sin(Math.PI/4)*Math.sin(Math.PI/4)));
+			//Approximative solution
+			int perimeter = (int) (Math.PI*Math.sqrt(2*(width*width+height*height))+0.5)
+			//floor(4*(width/2)*(Math.PI/2) * Math.sqrt(1 - Math.sqrt(1-(height/2*height/2)/((width/2 * width/2))) * Math.sin(Math.PI/4)*Math.sin(Math.PI/4)));
 			return perimeter;
 	  }
 }

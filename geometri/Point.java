@@ -21,7 +21,6 @@ public class Point extends AbstractForm{
 	* 			Only allows positive coordinates.
   */
   public Point(int x, int y, Color c) throws IllegalPositionException{
-		if(x < 0 || y < 0){throw new IllegalPositionException();}
 		super(x,y,0,0,c.clone());
   }
 

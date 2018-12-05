@@ -26,7 +26,6 @@ public class Circle extends Oval{
 	 * 			Only allows positive coordinates.
 	 */
 	public Circle(int x, int y, int diameter, Color c) throws IllegalPositionException{
-		if(x < 0 || y < 0){throw new IllegalPositionException();}
 		super(x,y,diameter,diameter,c.clone());
 	}
 
@@ -48,15 +47,8 @@ public class Circle extends Oval{
 	 * {@inheritDoc}
 	 */
 	@Override
-    public int getArea(){
-			return Math.PI*(diameter/2)*(diameter/2);
-    }
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
     public int getPerimeter(){
+			// We override since it is easier to calculate.
 			return (int) floor(Math.PI * diameter);
     }
 }
