@@ -30,7 +30,7 @@ public class Oval extends AbstractForm{
 	 * 			Only allows positive coordinates.
 	 */
 	public Oval(int x, int y, int width, int height, Color c) throws IllegalPositionException {
-		super(x,y,height,width,c.clone());
+		super(x,y,height,width,c.this.clone());
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class Oval extends AbstractForm{
 	 * 			Color of the Oval.
 	 */
 	public Oval(GeometricalForm f, int width, int height, Color c) {
-		super(f,height, width, c.clone());
+		super(f,height, width, c);
 	}
 
 	/**

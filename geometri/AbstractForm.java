@@ -12,7 +12,7 @@ abstract class AbstractForm implements GeometricalForm{
   *
   * @param x
   *         X coordinate of the form.
-  * @param y  
+  * @param y
   *         Y coordinate of the form.
   * @param height
   *         Height of the form.
@@ -67,25 +67,25 @@ abstract class AbstractForm implements GeometricalForm{
   *{@inheritDoc}
   */
   @Override
-  abstract int getArea();
+  abstract public int getArea();
   /**
   *{@inheritDoc}
   */
   @Override
-  abstract int getPerimeter();
+  abstract public int getPerimeter();
 
   /**
   *{@inheritDoc}
   */
   @Override
-  abstract void fill( Graphics g );
+  abstract public void fill( Graphics g );
 
   /**
   *{@inheritDoc}
   */
   @Override
   public Color getColor(){
-    return color.clone();
+    return color;
   }
 
   /**

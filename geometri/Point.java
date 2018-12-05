@@ -21,7 +21,7 @@ public class Point extends AbstractForm{
 	* 			Only allows positive coordinates.
   */
   public Point(int x, int y, Color c) throws IllegalPositionException{
-		super(x,y,0,0,c.clone());
+		super(x,y,0,0,c);
   }
 
   /** Translates GeometricalForm to point.
@@ -29,7 +29,7 @@ public class Point extends AbstractForm{
   * @param c Color of the point.
   */
   public Point(GeometricalForm f, Color c){
-		super(f,0,0,c.clone());
+		super(f,0,0,c);
    }
 
   /**
