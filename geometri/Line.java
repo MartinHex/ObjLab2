@@ -37,19 +37,16 @@ public class Line extends AbstractForm{
 	 * 			Only allows positive start and end positions.
 	 */
 	public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException {
-		if(x1 < 0 || x2 < 0 || y1 < 0|| y2 < 0){throw new IllegalPositionException();}
-		if(x1<x2 && y1<y2){
+		if(x2 < 0 || y2 < 0){throw new IllegalPositionException();}
+
 			super(x1, y1, abs(y2-y1), abs(x2-x1), c.clone());
 			this.x2 = x2;
 			this.y2 = y2;
-		}
-		else if(x1<x2 && y1>y2){
 			//Vi måste flytta linjen så att den passar i en rektangel som
 			// där formen defineras av den övre vänsta punkten.
 			// Det kommer att finnas 4 olika fall där vi behöver skifta
 			//linjen på olika sätt. Lite oklart hur vi behåller så att vi
 			//definerar "rektangeln" på rätt sätt...
-		}
 	}
 
 	/**
@@ -85,8 +82,8 @@ public class Line extends AbstractForm{
     	return 0;
     }
 
-		private int getLength(){
-			return floor(sqrt((this.getY()-y2)*(this.getY() - y2) + (this.getX() - x2)*(this.getX() - x2)));
+		private double getLength(){
+			return sqrt((this.getY()-y2)*(this.getY() - y2) + (this.getX() - x2)*(this.getX() - x2));
 		}
 
 	/**
@@ -94,6 +91,24 @@ public class Line extends AbstractForm{
 	 */
 	@Override
     public int getPerimeter(){
-    	return 2*this.getLength();
+    	return (int) (2*this.getLength()+0.5);
     }
+
+		/**
+		*{@inheritDoc}
+		*/
+		@Override
+		public void move(int dx, int dy) throws IllegalPositionException{
+			if( this.x2+dx<0 || this.y2+dy<0){throw new IllegalPositionException();}
+			super.move(dx,dy);
+			this.x2 += dx;
+			this.y2 += dy;
+		}
+		/**
+		*{@inheritDoc}
+		*/
+		@Override
+		public void place(int x, int y) throws IllegalPositionException{
+			this.move(x-this.getX(),y-this.getY());
+		}
 }
