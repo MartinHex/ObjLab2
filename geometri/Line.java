@@ -106,7 +106,8 @@ public class Line extends AbstractForm{
 		*
 		*/
 		public int[] getPositions(){
-			return new int[4]{x1, y1, x2, y2};
+			int[] a = {x1, y1, x2, y2};
+			return a;
 		}
 
 		/**
@@ -120,25 +121,27 @@ public class Line extends AbstractForm{
 			if(!(obj instanceof Line)){
 				return false;
 			}
-			Line typeCastedObj = (Line) Obj
+			Line typeCastedObj = (Line) obj;
 			if(!(this.getHeight() == typeCastedObj.getHeight() &&
-			 		this.getWidth() == typeCastedObj.getWidth())){
+			 		this.getWidth() == typeCastedObj.getWidth()) &&
+					this.getColor().equals(typeCastedObj.getColor())){
 				return false;
 			}
 			int[] compCoordinates = typeCastedObj.getPositions();
 			int[] coordinates = this.getPositions();
-			boolean[] temp = new boolean[4]
-			for(int i = 0; i<coordinates.size(), i++){
-				if( !(0 == coordinates[i] - compCoordinates[i]) ){ return false};
+			boolean[] temp = new boolean[4];
+			for(int i = 0; i<4; i++){
+				if( !(0 == coordinates[i] - compCoordinates[i]) )
+				{ return false;}
 			}
-			return true
+			return true;
 		}
 
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public in hashCode(){
-			return this.getPositions().hashCode()
+		public int hashCode(){
+			return this.getPositions().hashCode();
 		}
 }

@@ -56,7 +56,7 @@ public class Point extends AbstractForm{
   * Compares this object to object o to see if they have equal properties.
   * @param o object being compared.
   */
-  public boolean equals(E o){
+  public boolean equals(Object o){
     if (o==this){return true;}
    if (!(o instanceof Point)) return false;
     else{

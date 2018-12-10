@@ -61,18 +61,17 @@ public class Rectangle extends AbstractForm {
   *@@param o Object being compared.
   */
   @Override
-  public boolean equals(E o){
+  public boolean equals(Object o){
     if (o==this){return true;}
 		if (!(o instanceof Rectangle)) return false;
     else{
       Rectangle typeCastedObj = (Rectangle) o;
-      return (typeCastedObj.getWidth()==this.getWidth() && typeCastedObj.getHeigth()==this.getHeight() && typeCastedObj.getColor.equals(this.getColor()));
+      return (typeCastedObj.getWidth()==this.getWidth() && typeCastedObj.getHeight()==this.getHeight() && typeCastedObj.getColor().equals(this.getColor()));
         }
     }
     /**
     *{@inheritDoc}
     */
-    @Override
     @Override
     public int hashCode(){
       return 31*31*this.getWidth()+ 31*this.getHeight()+this.getColor().hashCode();

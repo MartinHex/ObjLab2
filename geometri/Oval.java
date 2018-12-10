@@ -80,13 +80,13 @@ public class Oval extends AbstractForm{
 		 if(!(obj instanceof Oval)){
 			 return false;
 		 }
-		 Oval typeCastedObj = (Oval) Obj
+		 Oval typeCastedObj = (Oval) obj;
 		 return (typeCastedObj.getWidth() == this.getWidth() &&
-		  			typeCastedObj.getHeight() == this.getHeight() %%
+		  			typeCastedObj.getHeight() == this.getHeight() &&
 			 			typeCastedObj.getColor().equals(this.getColor()));
 	 }
 
 	 public int hashCode(){
-		 return (33*33*33*this.getWidth().hashCode() + 33*33*this.getHeight().hashCode() + 33*this.getColor().hashCode());
+		 return (33*33*33*this.getWidth() + 33*33*this.getHeight() + 33*this.getColor().hashCode());
 	 }
 }
