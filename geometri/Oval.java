@@ -68,4 +68,25 @@ public class Oval extends AbstractForm{
 		int perimeter = (int) (Math.PI*Math.sqrt(2*(this.getWidth()*this.getWidth()+getHeight()/2*getHeight()/2))+0.5);
 		return perimeter;
 	 }
+
+	 /**
+	 *{@inheritDoc}}
+	 */
+	 @Override
+	 public boolean equals(Object obj){
+		 if(obj == this){
+			 return true;
+		 }
+		 if(!(obj instanceof Oval)){
+			 return false;
+		 }
+		 Oval typeCastedObj = (Oval) Obj
+		 return (typeCastedObj.getWidth() == this.getWidth() &&
+		  			typeCastedObj.getHeight() == this.getHeight() %%
+			 			typeCastedObj.getColor().equals(this.getColor()));
+	 }
+
+	 public int hashCode(){
+		 return (33*33*33*this.getWidth().hashCode() + 33*33*this.getHeight().hashCode() + 33*this.getColor().hashCode());
+	 }
 }

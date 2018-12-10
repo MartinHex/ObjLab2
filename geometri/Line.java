@@ -13,10 +13,10 @@ import java.lang.Math;
  *
  */
 public class Line extends AbstractForm{
-	private int x1;
-	private int y1;
-	private int x2;
-	private int y2;
+	public int x1;
+	public int y1;
+	public int x2;
+	public int y2;
 	/**
 	 * Constructs a line between two given points.
 	 *
@@ -98,4 +98,47 @@ public class Line extends AbstractForm{
     public int getPerimeter(){
     	return (int) (2*this.getLength()+0.5);
     }
+
+		/**
+		*Returns the position of the end points of the given line.
+		*
+		*The method returns the positions as an array in the order {x1, y1, x2, y2}.
+		*
+		*/
+		public int[] getPositions(){
+			return new int[4]{x1, y1, x2, y2};
+		}
+
+		/**
+		*{@inheritDoc}}
+		*/
+		@Override
+		public boolean equals(Object obj){
+			if(obj == this){
+				return true;
+			}
+			if(!(obj instanceof Line)){
+				return false;
+			}
+			Line typeCastedObj = (Line) Obj
+			if(!(this.getHeight() == typeCastedObj.getHeight() &&
+			 		this.getWidth() == typeCastedObj.getWidth())){
+				return false;
+			}
+			int[] compCoordinates = typeCastedObj.getPositions();
+			int[] coordinates = this.getPositions();
+			boolean[] temp = new boolean[4]
+			for(int i = 0; i<coordinates.size(), i++){
+				if( !(0 == coordinates[i] - compCoordinates[i]) ){ return false};
+			}
+			return true
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public in hashCode(){
+			return this.getPositions().hashCode()
+		}
 }
