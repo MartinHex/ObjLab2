@@ -56,4 +56,25 @@ public class Rectangle extends AbstractForm {
   public int getPerimeter(){
 		return 2*this.getWidth()+2*this.getHeight();
   }
+  /**
+  * Compare this square to an other object. Returns true if the rectangle has the same dimensions and color.
+  *@@param o Object being compared.
+  */
+  @Override
+  public boolean equals(E o){
+    if (o==this){return true;}
+		if (!(o instanceof Rectangle)) return false;
+    else{
+      Rectangle typeCastedObj = (Rectangle) o;
+      return (typeCastedObj.getWidth()==this.getWidth() && typeCastedObj.getHeigth()==this.getHeight() && typeCastedObj.getColor.equals(this.getColor()));
+        }
+    }
+    /**
+    *{@inheritDoc}
+    */
+    @Override
+    @Override
+    public int hashCode(){
+      return 31*31*this.getWidth()+ 31*this.getHeight()+this.getColor().hashCode();
+    }
 }

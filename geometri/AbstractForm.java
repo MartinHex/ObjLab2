@@ -73,13 +73,11 @@ abstract class AbstractForm implements GeometricalForm{
   */
   @Override
   abstract public int getPerimeter();
-
   /**
   *{@inheritDoc}
   */
   @Override
   abstract public void fill( Graphics g );
-
   /**
   *{@inheritDoc}
   */
@@ -87,7 +85,6 @@ abstract class AbstractForm implements GeometricalForm{
   public Color getColor(){
     return color;
   }
-
   /**
   *{@inheritDoc}
   */
@@ -95,7 +92,6 @@ abstract class AbstractForm implements GeometricalForm{
   public int getWidth(){
     return width;
   }
-
   /**
   *{@inheritDoc}
   */
@@ -103,8 +99,6 @@ abstract class AbstractForm implements GeometricalForm{
   public int getHeight(){
     return height;
   }
-
-
   /**
   *{@inheritDoc}
   */

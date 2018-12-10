@@ -52,4 +52,22 @@ public class Point extends AbstractForm{
   public int getPerimeter(){
 		return 0;
   }
+  /**
+  * Compares this object to object o to see if they have equal properties.
+  * @param o object being compared.
+  */
+  public boolean equals(E o){
+    if (o==this){return true;}
+   if (!(o instanceof Point)) return false;
+    else{
+      Point typeCastedObj = (Point) o;
+      return (typeCastedObj.getColor().equals(this.getColor()));
+        }
+    }
+    /**
+    * {@{@inheritDoc}
+    */
+   public int hashCode(){
+     return 47*this.getColor().hashCode();
+   }
 }
